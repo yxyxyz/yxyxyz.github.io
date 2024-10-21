@@ -1,7 +1,52 @@
 html {
-    font-family: Palatino Linotype;
-    font-size: medium;
-    font-weight: 300;
+    font-family: Verdana, sans-serif;
+    font-size: small;
+    font-weight: 500;
+}
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.day-mode {
+    background-color: #FFFFF0;
+    color: black;
+}
+.night-mode {
+    background-color: black;
+    color: #FFFFF0;
+}
+
+/* reference: https://webtips.dev/how-to-make-an-animated-day-and-night-toggle-switch */
+.toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 25px;
+    font-size: 150%;
+}
+
+.toggle:before {
+    content: '☀️';
+}
+
+
+.toggle.active:before {
+    content: '🌒';
+}
+
+.toggle.animate {
+    animation: animate .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@keyframes animate {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.custom-font {
+    font-family: 'Courier New', serif;
+    font-size: small;
 }
 
 a {
@@ -10,46 +55,32 @@ a {
 }
 
 a:hover {
-    color: #217ee7;
+    color:#216ee7;
 }
 
 #content {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) ;
+    transform: translate(-50%, -50%);
     text-align: center;
-    max-width: 520px;
-    padding: 32px;
+    max-width: 800px;
+    padding: 40px;
     line-height: 1.6em;
 }
-
+#selected {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    margin-right: -25%;
+    transform: translate(-50%, -50%);
+    text-align: start;
+    max-width: 800px;
+    padding: 40px;
+    line-height: 1.6em;
+}
 .avatar {
     border-radius: 50%;
-    width: 150px;
-}
-
-.icons {
-    list-style-type: none;
-    font-size: xx-large;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    max-width: 320px;
-    margin: 1em auto;
-}
-
-.icons li {
-    display: inline;
-    width: 42px;
-}
-
-.icons a {
-    color: black;
-}
-
-.icons a:hover {
-    color: #1565c0;
+    width: 200px;
 }
